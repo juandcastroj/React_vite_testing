@@ -29,6 +29,7 @@ export default function Navbar() {
 
   return (
     
+    
     <Disclosure as="header" className="bg-gray-800">
       <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:divide-y lg:divide-gray-700 lg:px-8">
         <div className="relative flex h-16 justify-between">

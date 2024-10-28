@@ -2,24 +2,48 @@
 
 export default function Signin() {
 
-      // useEffect(() => {
-      //   first
-      
-      //   return () => {
-      //     second
+    const traerDBZ = async() => {
+      try {
+          const response = await fetch('https://dragonball-api.com/api/characters');
+          const data = await response.json();
+          //console.log(data.items);
+          const pokemons = [];
+            data.items.forEach(element => {
+              console.log('character: ' + element.name  +  '  ki: ' + element.ki);
+              pokemons.push(element.name);
+            });
+            console.log(pokemons);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    traerDBZ();
+
+
+      // const traerPokemons = async() => {
+      //   try {
+      //     const response = await fetch('https://pokeapi.co/api/v2/pokemon/')
+      //     const data = await response.json();
+      //     //console.log(data.results);
+      //     const pokemons = [];
+      //     data.results.forEach(element => {
+      //      // console.log(element);
+      //       pokemons.push(element.name);
+      //     });
+      //     console.log(pokemons);
+      //   } catch (error) {
+      //     console.log(error);
       //   }
-      // }, [third])
+      // }
+      // traerPokemons();
       
 
       // const [data, setData] = useState({
       //   name : '',
       //   lastname : ''
       // })
-
       // const handleInputChange = (event) => {
       //   console.log(event);
-
-        
       // }
 
     return (
