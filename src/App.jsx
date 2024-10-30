@@ -3,6 +3,7 @@
 //import viteLogo from '/vite.svg'
 import Navbar from './components/Navbar'
 import Signin from './components/Signin'
+import Features from './components/Features'
 import Hero from './components/Hero'
 import Footer from './components/Footer'
 
@@ -15,6 +16,7 @@ function App() {
     <>
       <Navbar />
       <Signin />
+      <Features />
       <Hero />
       <Footer />
 

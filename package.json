@@ -1,7 +1,9 @@
 {
   "name": "test_react_vite_app",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "author": "Juan Castro",
+  "description": "jd react portfolio",
   "type": "module",
   "scripts": {
     "dev": "vite",

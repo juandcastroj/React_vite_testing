@@ -9,7 +9,7 @@ export default function Signin() {
           //console.log(data.items);
           const pokemons = [];
             data.items.forEach(element => {
-              console.log('character: ' + element.name  +  '  ki: ' + element.ki);
+              console.log('character: ' + element.name  + '  race :' + element.race + '  ki: ' + element.ki);
               pokemons.push(element.name);
             });
             console.log(pokemons);
