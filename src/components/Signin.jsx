@@ -1,50 +1,37 @@
-//import { useState, useEffect } from "react"
+import { useState } from "react"
 
 export default function Signin() {
 
+     const [characters, setCharacters] = useState('DBZ Characters here');
+
     const traerDBZ = async() => {
+
       try {
           const response = await fetch('https://dragonball-api.com/api/characters');
           const data = await response.json();
-          //console.log(data.items);
+
+          console.log(data);
           const pokemons = [];
+
             data.items.forEach(element => {
-              console.log('character: ' + element.name  + '  race :' + element.race + '  ki: ' + element.ki);
+              //console.log('character: ' + element.name  + '  race :' + element.race + '  ki: ' + element.ki);
               pokemons.push(element.name);
             });
             console.log(pokemons);
+
+            setCharacters(pokemons);
+            console.log(typeof(characters));
+            
+            //document.getElementById("poke-names").innerHTML = pokemons;
       } catch (error) {
         console.log(error);
       }
     }
-    traerDBZ();
 
-
-      // const traerPokemons = async() => {
-      //   try {
-      //     const response = await fetch('https://pokeapi.co/api/v2/pokemon/')
-      //     const data = await response.json();
-      //     //console.log(data.results);
-      //     const pokemons = [];
-      //     data.results.forEach(element => {
-      //      // console.log(element);
-      //       pokemons.push(element.name);
-      //     });
-      //     console.log(pokemons);
-      //   } catch (error) {
-      //     console.log(error);
-      //   }
-      // }
-      // traerPokemons();
-      
-
-      // const [data, setData] = useState({
-      //   name : '',
-      //   lastname : ''
-      // })
-      // const handleInputChange = (event) => {
-      //   console.log(event);
-      // }
+    // useEffect(() => {
+    //     traerDBZ();
+    // }, [])
+    
 
     return (
       <>
@@ -59,6 +46,15 @@ export default function Signin() {
             <h2 className="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
               Sign in to your account
             </h2>
+
+            {/* <ul>
+             {characters.map( char, index => ( 
+              <li key={index}>{char.name}</li>
+               ) )}
+            </ul> */}
+
+              <h2>  {characters}  </h2>
+
           </div>
   
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
@@ -101,29 +97,10 @@ export default function Signin() {
                   </div>
                 </div>
 
-                {/* <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <input
-                      id="remember-me"
-                      name="remember-me"
-                      type="checkbox"
-                      className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                    />
-                    <label htmlFor="remember-me" className="ml-3 block text-sm leading-6 text-gray-900">
-                      Remember me
-                    </label>
-                  </div>
-                  <div className="text-sm leading-6">
-                    <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
-                      Forgot password?
-                    </a>
-                  </div>
-                </div> */}
-  
-
                 <div>
                   <button
-                    //onClick={console.log(document.getElementById('email').value)}
+                    // onClick={console.log(document.getElementById('email').value)}
+                      onClick={traerDBZ}
                     type="button"
                     className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
